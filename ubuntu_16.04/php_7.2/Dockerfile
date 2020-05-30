@@ -6,6 +6,7 @@ RUN apt-get update && \
     locales \
     tzdata \
     curl \
+    wget \
     zip
 
 RUN locale-gen en_US.UTF-8 && \
@@ -18,7 +19,6 @@ RUN export LANG=en_US.UTF-8 && \
     apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4F4EA0AAE5267A6C && \
     apt-get install -y \
     libaio1 \
-    php-pear \
     php7.2-fpm \
     php7.2-cli
 
@@ -48,8 +48,8 @@ RUN curl -sS https://getcomposer.org/installer | php && \
     chmod +x /usr/local/bin/composer && \
     composer
 
-COPY ./instantclient-basic-linux.x64-12.2.0.1.0.zip /tmp/instantclient-basic-linux.x64-12.2.0.1.0.zip
-COPY ./instantclient-sdk-linux.x64-12.2.0.1.0.zip /tmp/instantclient-sdk-linux.x64-12.2.0.1.0.zip
+COPY ./instantclient-basic-linux.x64-12.1.0.2.0.zip /tmp/instantclient-basic-linux.x64-12.1.0.2.0.zip
+COPY ./instantclient-sdk-linux.x64-12.1.0.2.0.zip /tmp/instantclient-sdk-linux.x64-12.1.0.2.0.zip
 COPY ./oracle_oci8.sh /root/oracle_oci8.sh
 
 RUN chmod +x /root/oracle_oci8.sh && \
