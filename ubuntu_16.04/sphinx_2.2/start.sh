@@ -1,6 +1,8 @@
 #!/bin/bash
 
-if [ ! "$(ls -A /var/lib/sphinxsearch/data/)" ]; then
+DATA_DIR='/var/lib/sphinxsearch/data/'
+
+if [ ! "$(ls -A $DATA_DIR)" ]; then
     /usr/bin/indexer --rotate --all
 fi
 
