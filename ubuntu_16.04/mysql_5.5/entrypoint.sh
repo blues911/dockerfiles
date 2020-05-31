@@ -28,10 +28,7 @@ if [ ! -d /opt/mysql/data/mysql ]; then
     /opt/mysql/bin/mysql --user=root --execute="UPDATE mysql.user SET password=PASSWORD('$MYSQL_ROOT_PASSWORD') WHERE user='root'; FLUSH PRIVILEGES;"
     /opt/mysql/bin/mysql --user=root --password=$MYSQL_ROOT_PASSWORD --execute="GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '$MYSQL_ROOT_PASSWORD' WITH GRANT OPTION; FLUSH PRIVILEGES;"
 
-    echo "[3] install json_udfs"
-    /opt/mysql/bin/mysql --user=root --password=$MYSQL_ROOT_PASSWORD --execute="CREATE FUNCTION json_valid RETURNS integer SONAME 'libmy_json_udf_path.so';CREATE FUNCTION json_search RETURNS string SONAME 'libmy_json_udf_path.so';CREATE FUNCTION json_extract RETURNS string SONAME 'libmy_json_udf_path.so';CREATE FUNCTION json_replace RETURNS string SONAME 'libmy_json_udf_path.so';CREATE FUNCTION json_append RETURNS string SONAME 'libmy_json_udf_path.so';CREATE FUNCTION json_remove RETURNS string SONAME 'libmy_json_udf_path.so';CREATE FUNCTION json_set RETURNS string SONAME 'libmy_json_udf_path.so';CREATE FUNCTION json_merge RETURNS string SONAME 'libmy_json_udf_path.so';CREATE FUNCTION json_safe_merge RETURNS string SONAME 'libmy_json_udf_path.so';CREATE FUNCTION json_deep_merge RETURNS string SONAME 'libmy_json_udf_path.so';CREATE FUNCTION json_contains_key RETURNS integer SONAME 'libmy_json_udf_path.so';CREATE FUNCTION json_depth RETURNS INTEGER SONAME 'libmy_json_udf_path.so';CREATE FUNCTION json_count RETURNS INTEGER SONAME 'libmy_json_udf_path.so';CREATE FUNCTION json_version RETURNS STRING SONAME 'libmy_json_udf_path.so';CREATE FUNCTION json_test_parser RETURNS string SONAME 'libmy_json_udf_path.so';"
-
-    echo "[4] stop mysqld_safe mode and start mysqld"
+    echo "[3] stop mysqld_safe mode and start mysqld"
     /opt/mysql/bin/mysqladmin --user=root --password=$MYSQL_ROOT_PASSWORD shutdown
     sleep 5
 fi
