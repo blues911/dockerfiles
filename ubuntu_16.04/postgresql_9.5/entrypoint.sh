@@ -9,4 +9,5 @@ fi
 
 # change postgres password
 # su postgres -c "psql -c \"ALTER USER postgres WITH PASSWORD 'postgres';\""
+
 su - postgres -c "/usr/lib/postgresql/9.5/bin/postgres -c config_file=/etc/postgresql/9.5/main/postgresql.conf"
