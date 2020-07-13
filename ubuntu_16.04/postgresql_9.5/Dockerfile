@@ -20,9 +20,11 @@ RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-k
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y -q postgresql-9.5 postgresql-contrib-9.5
 
-RUN echo 'host all all all md5' >> /etc/postgresql/9.5/main/pg_hba.conf
+RUN sed -i -e "s/data_directory = '\/var\/lib\/postgresql\/9.5\/main'/data_directory = '\/var\/lib\/postgresql\/9.5\/data'/g" /etc/postgresql/9.5/main/postgresql.conf && \
+    sed -i -e "s/#listen_addresses = 'localhost'/listen_addresses = '*'/g" /etc/postgresql/9.5/main/postgresql.conf && \
+    echo "host all all all md5" >> /etc/postgresql/9.5/main/pg_hba.conf
 
-VOLUME ["/var/lib/postgresql/data"]
+VOLUME ["/var/lib/postgresql/9.5/data"]
 
 COPY ./entrypoint.sh /sbin/entrypoint.sh
 RUN chmod +x /sbin/entrypoint.sh
