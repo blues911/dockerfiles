@@ -20,7 +20,7 @@ docker build -t mysql:5.7 ./mysql_5.7/
 docker build -t mysql:8.0 ./mysql_8.0/
 # sphinx: 2.2
 docker build -t sphinx:2.2 ./sphinx_2.2/
-# redis: 4.0
-docker build -t redis:4.0 ./redis_4.0/
+# redis: 3.0
+docker build -t redis:3.0 ./redis_3.0/
 # postgresql: 9.5
 docker build -t postgresql:9.5 ./postgresql_9.5/
