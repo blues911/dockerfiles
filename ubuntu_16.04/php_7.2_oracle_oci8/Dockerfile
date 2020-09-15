@@ -20,7 +20,10 @@ RUN export LANG=en_US.UTF-8 && \
     apt-get install -y \
     libaio1 \
     php7.2-fpm \
-    php7.2-cli
+    php7.2-cli \
+    xvfb \
+    libfontconfig \
+    wkhtmltopdf
 
 RUN apt-get install -y \
     php7.2-dev \
