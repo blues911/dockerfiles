@@ -19,12 +19,14 @@ RUN apt-get update && \
 RUN	rm -rf /var/lib/mysql && \
     mkdir -p /var/run/mysqld && \
     chown -R mysql:mysql /var/run/mysqld && \
+    mkdir -p /var/log/mysql && \
+    chown -R mysql:mysql /var/log/mysql && \
     sed -e "s/^bind-address\(.*\)=.*/bind-address = 0.0.0.0/" -i /etc/mysql/mysql.conf.d/mysqld.cnf
 
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-VOLUME ["/var/lib/mysql"]
+VOLUME ["/var/lib/mysql", "/var/log/mysql"]
 
 COPY ./entrypoint.sh /root/entrypoint.sh
 RUN chmod +x /root/entrypoint.sh

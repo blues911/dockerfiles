@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Settings for /var/log/mysql/:
+# 1) create local directory and change it user:group to something like 999:999 (check /var/lib/mysql/)
+# 2) add volume `- ./mysql/log/:/var/log/mysql/` into docker-compose.yml
+
 set -e
 
 MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-"password"}
