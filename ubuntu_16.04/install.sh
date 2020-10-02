@@ -24,3 +24,5 @@ docker build -t sphinx:2.2 ./sphinx_2.2/
 docker build -t redis:3.0 ./redis_3.0/
 # postgresql: 9.5
 docker build -t postgresql:9.5 ./postgresql_9.5/
+# go: 1.14
+docker build -t go:1.14 ./go_1.14/
