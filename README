@@ -1,15 +1,16 @@
 ubuntu:16.04:
 + apache:2.4
-+ nginx:1.14
-+ node:10.x
++ go:1.14
 + mysql:5.5
 + mysql:5.5-json-udfs
 + mysql:5.7
 + mysql:8.0
-+ postgresql:9.5
++ nginx:1.14
++ node:10.x
 + php:5.6
 + php:7.2
 + php:7.2-oracle-oci8
 + php:7.4
++ postgresql:9.5
 + redis:4.0
 + sphinx:2.2
