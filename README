@@ -1,20 +1,31 @@
-ubuntu:16.04:
-+ apache:2.4
-+ go:1.14
-+ mysql:5.5
-+ mysql:5.5-json-udfs
-+ mysql:5.7
-+ mysql:8.0
-+ nginx:1.14
-+ node:10.x
-+ php:5.6
-+ php:7.2
-+ php:7.2-oracle-oci8
-+ php:7.4
-+ python:2.7
-+ postgresql:9.5
-+ redis:4.0
-+ sphinx:2.2
+ubuntu
+|-- 16.04
+|   |-- apache
+|   |   |-- 2.4
+|   |-- go
+|   |   |-- 1.14
+|   |-- mysql
+|   |   |-- 5.5
+|   |   |-- 5.5-json-udfs
+|   |   |-- 5.7
+|   |   |-- 8.0
+|   |-- nginx
+|   |   |-- 1.14
+|   |-- node
+|   |   |-- 10.x
+|   |-- php
+|   |   |-- 5.6
+|   |   |-- 7.2
+|   |   |-- 7.2-oracle-oci8
+|   |   |-- 7.4
+|   |-- python
+|   |   |-- 2.7
+|   |-- postgresql
+|   |   |-- 9.5
+|   |-- redis
+|   |   |-- 4.0
+|   |-- sphinx
+|   |   |-- 2.2
 
 [?] Some Dockerfile has no CMD or ENTRYPOINT for starting, so in that case I use
 files from /boot, mount them as a volume in a docker-compose.yml and support
