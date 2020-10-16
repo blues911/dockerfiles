@@ -13,6 +13,8 @@ docker build -t php:5.6 ./php_5.6/
 docker build -t php:7.2 ./php_7.2/
 docker build -t php:7.2-oracle-oci8 ./php_7.2_oracle_oci8/
 docker build -t php:7.4 ./php_7.4/
+# python: 2.7
+docker build -t python:2.7 ./python_2.7/
 # mysql: 5.5, 5.7, 8.0
 docker build -t mysql:5.5 ./mysql_5.5/
 docker build -t mysql:5.5-json-udfs ./mysql_5.5_json_udfs/
