@@ -10,7 +10,7 @@ ubuntu:16.04
 |- redis:4.0
 |- sphinx:2.2
 
-[?] Some Dockerfile has no CMD or ENTRYPOINT for starting, so in that case I use
+Some Dockerfile has no CMD or ENTRYPOINT for starting, so in that case I use
 files from /boot, mount them as a volume in a docker-compose.yml and support
 with commands, e.g.:
 - command: node /var/www/boot/server.js
