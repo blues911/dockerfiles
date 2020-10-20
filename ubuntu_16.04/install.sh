@@ -4,8 +4,8 @@
 # ------------------------------------------------------------------------------
 # apache: 2.4
 docker build -t apache:2.4 ./apache_2.4/
-# nginx: 1.14
-docker build -t nginx:1.14 ./nginx_1.14/
+# nginx: 1.10
+docker build -t nginx:1.10 ./nginx_1.10/
 # node: 10.x
 docker build -t node:10.x ./node_10.x/
 # php: 5.6, 7.2, 7.2-oracle-oci8, 7.4
