@@ -32,6 +32,8 @@ RUN cd /tmp && \
 RUN ln -s /usr/local/bin/python3.5 /usr/bin/python && \
     ln -s /usr/local/bin/pip3.5 /usr/bin/pip
 
+RUN pip install virtualenv
+ 
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /tmp/*
