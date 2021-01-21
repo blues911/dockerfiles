@@ -7,10 +7,10 @@ MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-"password"}
 # /opt/mysql/data
 if [ ! -d /opt/mysql/data/mysql ]; then
 
-    echo "[0] initialize databases"
+    echo "initialize databases"
     /opt/mysql/scripts/mysql_install_db --user=mysql --basedir=/opt/mysql --datadir=/opt/mysql/data/ >/dev/null 2>&1
 
-    echo "[1] start mysqld_safe"
+    echo "start mysqld_safe"
     /opt/mysql/bin/mysqld_safe --user=mysql >/dev/null 2>&1 &
 
     timeout=15
@@ -24,11 +24,11 @@ if [ ! -d /opt/mysql/data/mysql ]; then
         sleep 1
     done
 
-    echo "[2] update root password"
+    echo "update root password"
     /opt/mysql/bin/mysql --user=root --execute="UPDATE mysql.user SET password=PASSWORD('$MYSQL_ROOT_PASSWORD') WHERE user='root'; FLUSH PRIVILEGES;"
     /opt/mysql/bin/mysql --user=root --password=$MYSQL_ROOT_PASSWORD --execute="GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '$MYSQL_ROOT_PASSWORD' WITH GRANT OPTION; FLUSH PRIVILEGES;"
 
-    echo "[3] stop mysqld_safe mode and start mysqld"
+    echo "stop mysqld_safe mode and start mysqld"
     /opt/mysql/bin/mysqladmin --user=root --password=$MYSQL_ROOT_PASSWORD shutdown
     sleep 5
 fi

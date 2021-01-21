@@ -7,10 +7,10 @@ MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-"password"}
 # /var/lib/mysql
 if [ ! -d /var/lib/mysql/mysql ]; then
 
-    echo "[0] initialize databases"
+    echo "initialize databases"
     /usr/sbin/mysqld --initialize --user=mysql >/dev/null 2>&1
 
-    echo "[1] start mysqld_safe"
+    echo "start mysqld_safe"
     /usr/bin/mysqld_safe --skip-grant-tables --user=mysql >/dev/null 2>&1 &
 
     timeout=15
@@ -24,7 +24,7 @@ if [ ! -d /var/lib/mysql/mysql ]; then
         sleep 1
     done
 
-    echo "[2] reset root password"
+    echo "reset root password"
     mysql --user=root --execute="UPDATE mysql.user SET authentication_string=null WHERE User='root'; FLUSH PRIVILEGES;" >/dev/null
 
     # change root password
@@ -34,7 +34,7 @@ if [ ! -d /var/lib/mysql/mysql ]; then
     # mysql> CREATE USER 'root'@'%' IDENTIFIED BY 'password';
     # mysql> GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
 
-    echo "[3] stop mysqld_safe mode and start mysqld"
+    echo "stop mysqld_safe mode and start mysqld"
     killall mysqld
     sleep 10
 fi
