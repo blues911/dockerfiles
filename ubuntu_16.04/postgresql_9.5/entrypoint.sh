@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ ! -d "/var/lib/postgresql/9.5/data/base" ]; then
-    echo "[0] initialize databases"
+    echo "initialize databases"
     mkdir -p /var/lib/postgresql/9.5/data
     chown -R postgres:postgres /var/lib/postgresql/9.5/data
     su - postgres -c "/usr/lib/postgresql/9.5/bin/initdb --pgdata=/var/lib/postgresql/9.5/data"
