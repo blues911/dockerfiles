@@ -1,3 +1,6 @@
+# Optional packages:
+# - wkhtmltopdf
+# - python, libreoffice, unoconv
 FROM ubuntu:16.04
 
 RUN apt-get update && \
@@ -21,9 +24,12 @@ RUN export LANG=en_US.UTF-8 && \
     libaio1 \
     php7.0-fpm \
     php7.0-cli \
+    python \
     xvfb \
     libfontconfig \
-    wkhtmltopdf
+    wkhtmltopdf \
+    libreoffice \
+    unoconv
 
 RUN apt-get install -y \
     php7.0-dev \
