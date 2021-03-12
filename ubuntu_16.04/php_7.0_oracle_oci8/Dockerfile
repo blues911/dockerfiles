@@ -1,6 +1,6 @@
 # Optional packages:
-# - wkhtmltopdf
-# - python, libreoffice, unoconv
+# - wkhtmltopdf, python, libreoffice, unoconv
+# - php7.0-phalcon, php7.0-gettext, php7.0-fileinfo, libpcre3-dev
 FROM ubuntu:16.04
 
 RUN apt-get update && \
@@ -29,7 +29,8 @@ RUN export LANG=en_US.UTF-8 && \
     libfontconfig \
     wkhtmltopdf \
     libreoffice \
-    unoconv
+    unoconv \
+    libpcre3-dev
 
 RUN apt-get install -y \
     php7.0-dev \
@@ -46,7 +47,10 @@ RUN apt-get install -y \
     php7.0-sqlite3 \
     php7.0-gd \
     php7.0-imagick \
-    php7.0-intl
+    php7.0-intl \
+    php7.0-gettext \
+    php7.0-fileinfo \
+    php7.0-phalcon
 
 RUN mkdir /run/php && \
     sed -i '/listen = \/run\/php\/php7.0-fpm.sock/s/^/;/g' /etc/php/7.0/fpm/pool.d/www.conf && \
