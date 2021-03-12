@@ -19,8 +19,9 @@ docker build -t nginx:1.10 ./nginx_1.10/
 # node: 10.x
 docker build -t node:10.x ./node_10.x/
 
-# php: 5.6, 7.2, 7.2-oracle-oci8, 7.4
+# php: 5.6, 7.0, 7.0-oracle-oci8, 7.2, 7.4
 docker build -t php:5.6 ./php_5.6/
+docker build -t php:7.0 ./php_7.0/
 docker build -t php:7.0-oracle-oci8 ./php_7.0_oracle_oci8/
 docker build -t php:7.2 ./php_7.2/
 docker build -t php:7.4 ./php_7.4/
