@@ -34,8 +34,9 @@ docker build -t python:3.5 ./python_3.5/
 # postgresql: 9.5
 docker build -t postgresql:9.5 ./postgresql_9.5/
 
-# redis: 3.0
-docker build -t redis:3.0 ./redis_3.0/
+# redis: 5.0, 6.0
+docker build -t redis:5.0 ./redis_5.0/
+docker build -t redis:6.0 ./redis_6.0/
 
 # sphinx: 2.2
 docker build -t sphinx:2.2 ./sphinx_2.2/
