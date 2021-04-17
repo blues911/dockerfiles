@@ -19,10 +19,12 @@ RUN cd /tmp && \
     make install && \
     mkdir -p /etc/redis && \
     mkdir -p /var/lib/redis && \
-    chown -R redis:redis /var/lib/redis && \
     cp redis.conf /etc/redis && \
+    chown -R redis:redis /etc/redis && \
+    chown -R redis:redis /var/lib/redis && \
     sed -i -e 's/dir .\//dir \/var\/lib\/redis/g' /etc/redis/redis.conf && \
-    sed -i '/bind 127.0.0.1/s/^/#/g' /etc/redis/redis.conf
+    sed -i -e 's/protected-mode yes/protected-mode no/g' /etc/redis/redis.conf && \
+    sed -i -e 's/bind 127.0.0.1/bind 0.0.0.0/g' /etc/redis/redis.conf
 
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
@@ -30,4 +32,4 @@ RUN apt-get clean && \
 
 EXPOSE 6379
 
-CMD ["/usr/local/bin/redis-server"]
+CMD ["/usr/local/bin/redis-server", "/etc/redis/redis.conf"]
