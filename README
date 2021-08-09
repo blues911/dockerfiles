@@ -1,5 +1,11 @@
 My Dockerfiles
 
+Based on official images
+
+Repository          Tag
+-----------------------
+php                 7.4-fpm
+
 Based on ubuntu:18.04
 
 Repository          Tag
